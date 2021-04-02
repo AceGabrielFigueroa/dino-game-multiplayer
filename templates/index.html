@@ -9,11 +9,7 @@
         var socket = io();
         let players = {};
 
-        socket.on('connect', () => {
-            socket.emit('initPlayer', socket.id);
-        });
-
-        socket.on('update', (obj) => {
+        socket.on('server event', (obj) => {
             players = JSON.parse(obj);
             console.log(players);
         });
