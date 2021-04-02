@@ -29,15 +29,15 @@
                 socket.emit('update', players[socket.id][0] - 5, players[socket.id][1]);
             }
 
-            if (keyIsDown(RIGHT_ARROW)) {
+            else if (keyIsDown(RIGHT_ARROW)) {
                 socket.emit('update', players[socket.id][0] + 5, players[socket.id][1]);
             }
 
-            if (keyIsDown(UP_ARROW)) {
+            else if (keyIsDown(UP_ARROW)) {
                 socket.emit('update', players[socket.id][0], players[socket.id][1] - 5);
             }
 
-            if (keyIsDown(DOWN_ARROW)) {
+            else if (keyIsDown(DOWN_ARROW)) {
                 socket.emit('update', players[socket.id][0], players[socket.id][1] + 5);
             }
 
