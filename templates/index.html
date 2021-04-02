@@ -12,6 +12,7 @@
         socket.on('server event', (obj) => {
             players = JSON.parse(obj);
             console.log(players);
+            players[socket.id][1] - 5;
         });
 
         function setup() {
@@ -19,6 +20,8 @@
         }
 
         function draw() {
+            frameRate(8);
+            
             clear();
 
             if (keyIsDown(LEFT_ARROW)) {
