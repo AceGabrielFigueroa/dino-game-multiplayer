@@ -8,6 +8,7 @@
     <script type="text/javascript" charset="utf-8">
         var socket = io();
         let players = {};
+        let last;
 
         socket.on('server event', (obj) => {
             players = JSON.parse(obj);
@@ -22,6 +23,7 @@
 
         function draw() {
             clear();
+            last = players[socket.id];
 
             if (keyIsDown(LEFT_ARROW)) {
                 socket.emit('update', players[socket.id][0] - 5, players[socket.id][1]);
@@ -40,7 +42,7 @@
             }
 
             for(const [key, value] of Object.entries(players)) {
-                rect(value[0], value[1], 16, 16);
+                rect((value[0] + last[0])/2, (value[1] + last[1])/2, 16, 16);
             }
         }
     </script>
